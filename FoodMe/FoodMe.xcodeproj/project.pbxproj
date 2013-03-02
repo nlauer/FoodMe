@@ -1,0 +1,305 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8599595616E2A0D0005FBC1A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8599595516E2A0D0005FBC1A /* UIKit.framework */; };
+		8599595816E2A0D0005FBC1A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8599595716E2A0D0005FBC1A /* Foundation.framework */; };
+		8599595A16E2A0D0005FBC1A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8599595916E2A0D0005FBC1A /* CoreGraphics.framework */; };
+		8599596016E2A0D0005FBC1A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8599595E16E2A0D0005FBC1A /* InfoPlist.strings */; };
+		8599596216E2A0D0005FBC1A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8599596116E2A0D0005FBC1A /* main.m */; };
+		8599596616E2A0D0005FBC1A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8599596516E2A0D0005FBC1A /* AppDelegate.m */; };
+		8599596816E2A0D0005FBC1A /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 8599596716E2A0D0005FBC1A /* Default.png */; };
+		8599596A16E2A0D0005FBC1A /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8599596916E2A0D0005FBC1A /* Default@2x.png */; };
+		8599596C16E2A0D0005FBC1A /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8599596B16E2A0D0005FBC1A /* Default-568h@2x.png */; };
+		8599596F16E2A0D0005FBC1A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8599596E16E2A0D0005FBC1A /* ViewController.m */; };
+		8599597216E2A0D0005FBC1A /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8599597016E2A0D0005FBC1A /* ViewController.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		8599595216E2A0D0005FBC1A /* FoodMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8599595516E2A0D0005FBC1A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		8599595716E2A0D0005FBC1A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		8599595916E2A0D0005FBC1A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		8599595D16E2A0D0005FBC1A /* FoodMe-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FoodMe-Info.plist"; sourceTree = "<group>"; };
+		8599595F16E2A0D0005FBC1A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		8599596116E2A0D0005FBC1A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		8599596316E2A0D0005FBC1A /* FoodMe-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FoodMe-Prefix.pch"; sourceTree = "<group>"; };
+		8599596416E2A0D0005FBC1A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		8599596516E2A0D0005FBC1A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		8599596716E2A0D0005FBC1A /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		8599596916E2A0D0005FBC1A /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		8599596B16E2A0D0005FBC1A /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		8599596D16E2A0D0005FBC1A /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		8599596E16E2A0D0005FBC1A /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		8599597116E2A0D0005FBC1A /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8599594F16E2A0D0005FBC1A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8599595616E2A0D0005FBC1A /* UIKit.framework in Frameworks */,
+				8599595816E2A0D0005FBC1A /* Foundation.framework in Frameworks */,
+				8599595A16E2A0D0005FBC1A /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		8599594916E2A0D0005FBC1A = {
+			isa = PBXGroup;
+			children = (
+				8599595B16E2A0D0005FBC1A /* FoodMe */,
+				8599595416E2A0D0005FBC1A /* Frameworks */,
+				8599595316E2A0D0005FBC1A /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		8599595316E2A0D0005FBC1A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8599595216E2A0D0005FBC1A /* FoodMe.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8599595416E2A0D0005FBC1A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8599595516E2A0D0005FBC1A /* UIKit.framework */,
+				8599595716E2A0D0005FBC1A /* Foundation.framework */,
+				8599595916E2A0D0005FBC1A /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8599595B16E2A0D0005FBC1A /* FoodMe */ = {
+			isa = PBXGroup;
+			children = (
+				8599596416E2A0D0005FBC1A /* AppDelegate.h */,
+				8599596516E2A0D0005FBC1A /* AppDelegate.m */,
+				8599596D16E2A0D0005FBC1A /* ViewController.h */,
+				8599596E16E2A0D0005FBC1A /* ViewController.m */,
+				8599597016E2A0D0005FBC1A /* ViewController.xib */,
+				8599595C16E2A0D0005FBC1A /* Supporting Files */,
+			);
+			path = FoodMe;
+			sourceTree = "<group>";
+		};
+		8599595C16E2A0D0005FBC1A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				8599595D16E2A0D0005FBC1A /* FoodMe-Info.plist */,
+				8599595E16E2A0D0005FBC1A /* InfoPlist.strings */,
+				8599596116E2A0D0005FBC1A /* main.m */,
+				8599596316E2A0D0005FBC1A /* FoodMe-Prefix.pch */,
+				8599596716E2A0D0005FBC1A /* Default.png */,
+				8599596916E2A0D0005FBC1A /* Default@2x.png */,
+				8599596B16E2A0D0005FBC1A /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8599595116E2A0D0005FBC1A /* FoodMe */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8599597516E2A0D0005FBC1A /* Build configuration list for PBXNativeTarget "FoodMe" */;
+			buildPhases = (
+				8599594E16E2A0D0005FBC1A /* Sources */,
+				8599594F16E2A0D0005FBC1A /* Frameworks */,
+				8599595016E2A0D0005FBC1A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FoodMe;
+			productName = FoodMe;
+			productReference = 8599595216E2A0D0005FBC1A /* FoodMe.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		8599594A16E2A0D0005FBC1A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = NickLauer;
+			};
+			buildConfigurationList = 8599594D16E2A0D0005FBC1A /* Build configuration list for PBXProject "FoodMe" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 8599594916E2A0D0005FBC1A;
+			productRefGroup = 8599595316E2A0D0005FBC1A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8599595116E2A0D0005FBC1A /* FoodMe */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8599595016E2A0D0005FBC1A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8599596016E2A0D0005FBC1A /* InfoPlist.strings in Resources */,
+				8599596816E2A0D0005FBC1A /* Default.png in Resources */,
+				8599596A16E2A0D0005FBC1A /* Default@2x.png in Resources */,
+				8599596C16E2A0D0005FBC1A /* Default-568h@2x.png in Resources */,
+				8599597216E2A0D0005FBC1A /* ViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8599594E16E2A0D0005FBC1A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8599596216E2A0D0005FBC1A /* main.m in Sources */,
+				8599596616E2A0D0005FBC1A /* AppDelegate.m in Sources */,
+				8599596F16E2A0D0005FBC1A /* ViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		8599595E16E2A0D0005FBC1A /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8599595F16E2A0D0005FBC1A /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		8599597016E2A0D0005FBC1A /* ViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8599597116E2A0D0005FBC1A /* en */,
+			);
+			name = ViewController.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		8599597316E2A0D0005FBC1A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		8599597416E2A0D0005FBC1A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		8599597616E2A0D0005FBC1A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "FoodMe/FoodMe-Prefix.pch";
+				INFOPLIST_FILE = "FoodMe/FoodMe-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		8599597716E2A0D0005FBC1A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "FoodMe/FoodMe-Prefix.pch";
+				INFOPLIST_FILE = "FoodMe/FoodMe-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		8599594D16E2A0D0005FBC1A /* Build configuration list for PBXProject "FoodMe" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8599597316E2A0D0005FBC1A /* Debug */,
+				8599597416E2A0D0005FBC1A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8599597516E2A0D0005FBC1A /* Build configuration list for PBXNativeTarget "FoodMe" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8599597616E2A0D0005FBC1A /* Debug */,
+				8599597716E2A0D0005FBC1A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 8599594A16E2A0D0005FBC1A /* Project object */;
+}
