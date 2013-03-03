@@ -31,12 +31,12 @@ post '/register/complete/?' do
   api.user.set_credit_card(login,"home",credit_card)
   utils = OrdrInUtils.new(login, api)
   yelprating = YelpUtils.new()
-  until (rating =="" || Float(rating) >= 3) && order    do 
+  until (rating =="" || Float(rating) >= 3) && (!order.nil? && !order.empty?)    do
     restaurant = utils.randoRestau(home_address)
     rating = yelprating.GetYelpRating(restaurant)
-    puts restaurant
     order = utils.randoOrder(20.00, restaurant)
   end
+  utils.assembleOrderId(order)
   "#{api.user.get(login)}"
   #erb :register_complete
 end
