@@ -11,8 +11,7 @@ class OrdrInUtils
 
     public
 
-    def randoOrder(price, address)
-        restaurant = randoRestau(address)
+    def randoOrder(price, restaurant)
         items ||= []
         counter = 0.0
         while counter < price do
@@ -25,12 +24,12 @@ class OrdrInUtils
         return "test"
     end
 
-    private
-
     def randoRestau(address)
         restaurants = @api.restaurant.get_delivery_list('ASAP', address)
         return restaurants[rand(restaurants.length)]
     end
+
+    private
 
     def randoItem(restaurantId, maxprice)
         base = @api.restaurant.get_details(restaurantId)
