@@ -59,6 +59,7 @@ add credit card (https://hackfood.ordr.in/explorer/user/addCreditCard)
 #### AMK front-end TODO:
 x login saves cookie
 x user knows whether he's logged in or not
+- show registration link depending on user status
 - registration also saves username/password to same cookie
 - 'order' page/button
 - 'order page/button with location

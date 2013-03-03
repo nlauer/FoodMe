@@ -12,7 +12,10 @@ $(document).on('ready', function() {
   if (user_info) {
     // user is logged in
     $('#user_email').html(user_info.email);
-    $('#user_logged_in').show();
-    $('#signin_form').hide();
+    $('.loggedin_only').show();
+    $('.loggedout_only').hide();
+  } else {
+    $('.loggedout_only').show();
+    $('.loggedin_only').hide();
   }
 });
