@@ -35,6 +35,10 @@
 		859959B016E2D392005FBC1A /* KeychainItemWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 859959AF16E2D392005FBC1A /* KeychainItemWrapper.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		859959B316E2D3E3005FBC1A /* KeychainAccessor.m in Sources */ = {isa = PBXBuildFile; fileRef = 859959B216E2D3E3005FBC1A /* KeychainAccessor.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		859959B516E2D7A0005FBC1A /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 859959B416E2D7A0005FBC1A /* Security.framework */; };
+		859959B716E2E7B6005FBC1A /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 859959B616E2E7B6005FBC1A /* CoreLocation.framework */; };
+		859959BB16E2E816005FBC1A /* LocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 859959BA16E2E816005FBC1A /* LocationManager.m */; };
+		859959BF16E2FE70005FBC1A /* YouGotFoodViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 859959BD16E2FE70005FBC1A /* YouGotFoodViewController.m */; };
+		859959C016E2FE70005FBC1A /* YouGotFoodViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 859959BE16E2FE70005FBC1A /* YouGotFoodViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -85,6 +89,12 @@
 		859959B116E2D3E3005FBC1A /* KeychainAccessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeychainAccessor.h; sourceTree = "<group>"; };
 		859959B216E2D3E3005FBC1A /* KeychainAccessor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeychainAccessor.m; sourceTree = "<group>"; };
 		859959B416E2D7A0005FBC1A /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		859959B616E2E7B6005FBC1A /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		859959B916E2E816005FBC1A /* LocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationManager.h; sourceTree = "<group>"; };
+		859959BA16E2E816005FBC1A /* LocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationManager.m; sourceTree = "<group>"; };
+		859959BC16E2FE70005FBC1A /* YouGotFoodViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YouGotFoodViewController.h; sourceTree = "<group>"; };
+		859959BD16E2FE70005FBC1A /* YouGotFoodViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YouGotFoodViewController.m; sourceTree = "<group>"; };
+		859959BE16E2FE70005FBC1A /* YouGotFoodViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YouGotFoodViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +102,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				859959B716E2E7B6005FBC1A /* CoreLocation.framework in Frameworks */,
 				859959B516E2D7A0005FBC1A /* Security.framework in Frameworks */,
 				859959A316E2CAF3005FBC1A /* MobileCoreServices.framework in Frameworks */,
 				859959A116E2CAEF005FBC1A /* SystemConfiguration.framework in Frameworks */,
@@ -107,7 +118,6 @@
 		8599594916E2A0D0005FBC1A = {
 			isa = PBXGroup;
 			children = (
-				859959B416E2D7A0005FBC1A /* Security.framework */,
 				859959A416E2CAF7005FBC1A /* Libraries */,
 				8599595B16E2A0D0005FBC1A /* FoodMe */,
 				8599595416E2A0D0005FBC1A /* Frameworks */,
@@ -126,6 +136,8 @@
 		8599595416E2A0D0005FBC1A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				859959B616E2E7B6005FBC1A /* CoreLocation.framework */,
+				859959B416E2D7A0005FBC1A /* Security.framework */,
 				859959A216E2CAF3005FBC1A /* MobileCoreServices.framework */,
 				859959A016E2CAEF005FBC1A /* SystemConfiguration.framework */,
 				8599595516E2A0D0005FBC1A /* UIKit.framework */,
@@ -138,6 +150,7 @@
 		8599595B16E2A0D0005FBC1A /* FoodMe */ = {
 			isa = PBXGroup;
 			children = (
+				859959B816E2E7FE005FBC1A /* Location */,
 				859959AD16E2D37D005FBC1A /* Keychain */,
 				8599597916E2C628005FBC1A /* Networking */,
 				8599597816E2C61F005FBC1A /* UI */,
@@ -171,6 +184,9 @@
 				859959A816E2D1B5005FBC1A /* OrderViewController.h */,
 				859959A916E2D1B5005FBC1A /* OrderViewController.m */,
 				859959AA16E2D1B5005FBC1A /* OrderViewController.xib */,
+				859959BC16E2FE70005FBC1A /* YouGotFoodViewController.h */,
+				859959BD16E2FE70005FBC1A /* YouGotFoodViewController.m */,
+				859959BE16E2FE70005FBC1A /* YouGotFoodViewController.xib */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -227,6 +243,15 @@
 				859959B216E2D3E3005FBC1A /* KeychainAccessor.m */,
 			);
 			name = Keychain;
+			sourceTree = "<group>";
+		};
+		859959B816E2E7FE005FBC1A /* Location */ = {
+			isa = PBXGroup;
+			children = (
+				859959B916E2E816005FBC1A /* LocationManager.h */,
+				859959BA16E2E816005FBC1A /* LocationManager.m */,
+			);
+			name = Location;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -286,6 +311,7 @@
 				8599596C16E2A0D0005FBC1A /* Default-568h@2x.png in Resources */,
 				8599597216E2A0D0005FBC1A /* WelcomeViewController.xib in Resources */,
 				859959AC16E2D1B5005FBC1A /* OrderViewController.xib in Resources */,
+				859959C016E2FE70005FBC1A /* YouGotFoodViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -312,6 +338,8 @@
 				859959AB16E2D1B5005FBC1A /* OrderViewController.m in Sources */,
 				859959B016E2D392005FBC1A /* KeychainItemWrapper.m in Sources */,
 				859959B316E2D3E3005FBC1A /* KeychainAccessor.m in Sources */,
+				859959BB16E2E816005FBC1A /* LocationManager.m in Sources */,
+				859959BF16E2FE70005FBC1A /* YouGotFoodViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -19,6 +19,7 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
 
+//    [[KeychainAccessor sharedInstance] clearKeychain];
     UIViewController *viewController;
     if ([[KeychainAccessor sharedInstance] hasCredentials]) {
         viewController = [[OrderViewController alloc] initWithNibName:@"OrderViewController" bundle:nil];

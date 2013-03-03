@@ -40,7 +40,6 @@
 }
 
 - (IBAction)signInPressed:(id)sender {
-    NSLog(@"Sign In Pressed");
     NSString *email = _emailTextField.text;
     NSString *password = _passwordTextField.text;
 

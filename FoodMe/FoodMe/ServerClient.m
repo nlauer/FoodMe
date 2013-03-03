@@ -53,31 +53,26 @@
 
 - (void)signInWithEmail:(NSString *)email
                password:(NSString *)password {
-    NSDictionary *params = @{email: email,
-                             password: password};
-    
-    [_client postPath:kSignInPath
-           parameters:params
-              success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                  [self signedInWithEmail:email password:password];
-              }
-              failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                  NSLog(@"Failed to sign in: %@", error);
-              }];
-}
-
-- (void)signedInWithEmail:(NSString *)email password:(NSString *)password {
-    NSLog(@"successfully signed in");
     [[KeychainAccessor sharedInstance] saveEmail:email password:password];
     [self showOrderViewController];
 }
 
-- (void)orderFood {
+- (void)orderFoodToAddress:(NSDictionary *)addressComponents {
     NSString *email = [[KeychainAccessor sharedInstance] getEmail];
     NSString *password = [[KeychainAccessor sharedInstance] getPassword];
-    
-    NSDictionary *params = @{email: email,
-                             password: password};
+
+    NSMutableDictionary *params = [[NSMutableDictionary alloc] initWithDictionary:addressComponents];
+    [params setObject:email forKey:@"Email"];
+    [params setObject:password forKey:@"Password"];
+
+    [_client postPath:kOrderFoodPath
+           parameters:params
+              success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                  NSLog(@"Ordered thy food");
+              }
+              failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                  NSLog(@"Failed to sign in: %@", error);
+              }];
 
 }
 

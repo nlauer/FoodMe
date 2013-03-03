@@ -36,7 +36,6 @@
 - (BOOL)hasCredentials {
     NSString *password = [self getPassword];
     NSString *email = [self getEmail];
-    NSLog(@"password: %@ email: %@", password, email);
     if (password.length > 0 && email.length > 0) {
         return YES;
     }

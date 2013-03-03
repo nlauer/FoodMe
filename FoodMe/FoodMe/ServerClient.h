@@ -12,6 +12,6 @@
 
 + (ServerClient *)sharedInstance;
 - (void)signInWithEmail:(NSString *)email password:(NSString *)password;
-- (void)orderFood;
+- (void)orderFoodToAddress:(NSDictionary *)addressComponents;
 
 @end
