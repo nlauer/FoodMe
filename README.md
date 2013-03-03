@@ -4,6 +4,11 @@ FoodMe
 Launch Hackathon
 
 
+our API keys:
+public: U-o5Jb1VJ6Odx4Z8qEU3EGt3_xCrO7G2gfZBdsKysEA
+secret: b6MDqRkxBDZs6l9ArgOZEdb0ifbYobSUXlzdX4hRi5M
+
+
 #### tools to use:
 - jquery.payment: https://stripe.com/blog/jquery-payment
 
@@ -50,3 +55,12 @@ add credit card (https://hackfood.ordr.in/explorer/user/addCreditCard)
 - bill zip
 - bill phone # (probably use same)
 
+
+#### AMK front-end TODO:
+- login saves cookie
+- registration also saves username/password to same cookie
+- 'order' page/button
+- 'order page/button with location
+- 'order page/button with location guessing
+- CC validation on front-end
+- prettier bootstrap theme
