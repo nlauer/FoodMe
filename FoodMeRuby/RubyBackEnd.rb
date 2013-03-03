@@ -17,18 +17,14 @@ get'/register/?' do
 	erb :register
 end
 
-get '/login/?' do
-  "Hello"
-end
-
-post '/login/:name&password' do
-
-end
-
 post '/register/complete/?' do
   login = Ordrin::Data::UserLogin.new(params[:email],params[:password])
-  puts api.user.create(login,params[:first_name],params[:last_name])
-  "#{api.user.get(login)}"
+  address = Ordrin::Data::Address.new(params[:'street-address'],params[:city],params[:state],params[:zip],params[:phone_number],params[:'street-address-2'])
+  credit_card = Ordrin::Data::CreditCard.new( "#{params[:first_name]} #{params[:last_name]}", params[:'card-expiry-month'], params[:'card-expiry-year'], address,params[:'card-number'],params[:cvc])
+  api.user.create(login,params[:first_name],params[:last_name])
+  api.user.set_address(login,"home",address)
+  api.user.set_credit_card(login,"home",credit_card)
+  "Thank you for Registering"
 end
 
 post '/order' do
