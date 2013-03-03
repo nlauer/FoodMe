@@ -21,13 +21,8 @@ def GetYelpRating(restaurant)
   restaurant_address = na[0].split(' ').map(&:capitalize).join(' ').tr('-',' ')
   restaurant_city = na[1]
   restaurant_state = na[2]
-  puts restaurant_term
-  puts restaurant_address
-  puts restaurant_state
-  puts restaurant_city
   request = Yelp::V2::Search::Request::Location.new(:term => restaurant_term,:limit => 1, :address => restaurant_address, :city => restaurant_city,:state => restaurant_state, :consumer_key => @@CONSUMER_KEY, :consumer_secret => @@CONSUMER_SECRET, :token => @@TOKEN, :token_secret => @@TOKEN_SECRET)
   response = @yelp_client.search(request)
-  puts response
   if response["error"] || response["total"] == 0
     return ""
   end

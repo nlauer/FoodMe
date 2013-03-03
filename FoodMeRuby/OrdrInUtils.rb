@@ -21,7 +21,11 @@ class OrdrInUtils
             items << item
         end
         puts items
-        return "test"
+        if !items.empty?
+            return "true"
+        else
+            return "false"
+        end
     end
 
     def randoRestau(address)
