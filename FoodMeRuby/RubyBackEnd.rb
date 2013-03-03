@@ -17,20 +17,13 @@ get'/register/?' do
 	erb :register
 end
 
-get '/login/?' do
-  "Hello"
-end
-
-post '/login/:name&password' do
-
-end
-
 post '/register/complete/?' do
-  login = Ordrin::Data::UserLogin.new(params[:email],params[:password])
-  puts api.user.create(login,params[:first_name],params[:last_name])
-  "#{api.user.get(login)}"
+  #login = Ordrin::Data::UserLogin.new(params[:email],params[:password])
+  #puts api.user.create(login,params[:first_name],params[:last_name])
+  #"#{api.user.get(login)}"
+  redirect '/'
 end
 
-post '/order' do
-
+get '/order/?' do
+  "todo"
 end
