@@ -4,9 +4,17 @@ FoodMe
 Launch Hackathon
 
 
-our API keys:
+Ordrin API keys:
 public: U-o5Jb1VJ6Odx4Z8qEU3EGt3_xCrO7G2gfZBdsKysEA
 secret: b6MDqRkxBDZs6l9ArgOZEdb0ifbYobSUXlzdX4hRi5M
+
+Yelp API Keys:
+Consumer Key  hZYNzSXdlHrUwAJP933sJQ
+Consumer Secret giNKpzUwVQxI8ijEDjvq1N9IpDw
+Token nrjOX80WLa5HLTC644UzJaSTiI3yT2LE
+Token Secret  OdwnM8F3JE0A11-VkKOMbx-Y67U
+
+
 
 
 #### tools to use:
