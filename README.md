@@ -4,6 +4,11 @@ FoodMe
 Launch Hackathon
 
 
+our API keys:
+public: U-o5Jb1VJ6Odx4Z8qEU3EGt3_xCrO7G2gfZBdsKysEA
+secret: b6MDqRkxBDZs6l9ArgOZEdb0ifbYobSUXlzdX4hRi5M
+
+
 #### tools to use:
 - jquery.payment: https://stripe.com/blog/jquery-payment
 
