@@ -9,6 +9,8 @@
 #import "AppDelegate.h"
 
 #import "WelcomeViewController.h"
+#import "OrderViewController.h"
+#import "KeychainAccessor.h"
 
 @implementation AppDelegate
 
@@ -16,8 +18,17 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
-    self.viewController = [[WelcomeViewController alloc] initWithNibName:@"WelcomeViewController" bundle:nil];
-    self.window.rootViewController = self.viewController;
+
+    UIViewController *viewController;
+    if ([[KeychainAccessor sharedInstance] hasCredentials]) {
+        viewController = [[OrderViewController alloc] initWithNibName:@"OrderViewController" bundle:nil];
+    } else {
+        viewController = [[WelcomeViewController alloc] initWithNibName:@"WelcomeViewController" bundle:nil];
+    }
+    
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:viewController];
+    self.navController = navController;
+    self.window.rootViewController = self.navController;
     [self.window makeKeyAndVisible];
     return YES;
 }
@@ -47,6 +58,10 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
++ (AppDelegate *)appDelegate {
+    return (AppDelegate *)[[UIApplication sharedApplication] delegate];
 }
 
 @end

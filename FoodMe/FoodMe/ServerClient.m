@@ -9,9 +9,15 @@
 #import "ServerClient.h"
 
 #import "AFHTTPClient.h"
+#import "KeychainAccessor.h"
+#import "OrderViewController.h"
+#import "AppDelegate.h"
+#import "KeychainAccessor.h"
 
+//#define kBaseUrl @"http://10.100.16.238:4567/"
 #define kBaseUrl @"http://www.food.me"
-#define kSignInPath @"signin"
+#define kSignInPath @"signin/"
+#define kOrderFoodPath @"order/"
 
 @interface ServerClient () <NSURLConnectionDataDelegate>
 @property (strong) AFHTTPClient *client;
@@ -19,10 +25,9 @@
 
 @implementation ServerClient
 
-static id sharedInstance;
-
 + (ServerClient *)sharedInstance {
     static dispatch_once_t once;
+    static id sharedInstance;
     dispatch_once(&once, ^{
         sharedInstance = [[self alloc] init];
     });
@@ -37,6 +42,15 @@ static id sharedInstance;
     return self;
 }
 
+- (void)showOrderViewController {
+    OrderViewController *orderViewController = [[OrderViewController alloc] init];
+    [[AppDelegate appDelegate].navController presentViewController:orderViewController
+                                                          animated:YES
+                                                        completion:nil];
+}
+
+#pragma mark - Requests
+
 - (void)signInWithEmail:(NSString *)email
                password:(NSString *)password {
     NSDictionary *params = @{email: email,
@@ -45,11 +59,26 @@ static id sharedInstance;
     [_client postPath:kSignInPath
            parameters:params
               success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                  NSLog(@"successfully signed in");
+                  [self signedInWithEmail:email password:password];
               }
               failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                   NSLog(@"Failed to sign in: %@", error);
               }];
+}
+
+- (void)signedInWithEmail:(NSString *)email password:(NSString *)password {
+    NSLog(@"successfully signed in");
+    [[KeychainAccessor sharedInstance] saveEmail:email password:password];
+    [self showOrderViewController];
+}
+
+- (void)orderFood {
+    NSString *email = [[KeychainAccessor sharedInstance] getEmail];
+    NSString *password = [[KeychainAccessor sharedInstance] getPassword];
+    
+    NSDictionary *params = @{email: email,
+                             password: password};
+
 }
 
 @end
