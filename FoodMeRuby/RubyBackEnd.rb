@@ -1,7 +1,7 @@
 require "sinatra"
 require "ordrin"
-load "OrdrInUtils.rb"
-load "YelpUtils.rb"
+load "FoodMeRuby/OrdrInUtils.rb"
+load "FoodMeRuby/YelpUtils.rb"
 
 API_KEY = "U-o5Jb1VJ6Odx4Z8qEU3EGt3_xCrO7G2gfZBdsKysEA"
 SECRET_API_KEY = "b6MDqRkxBDZs6l9ArgOZEdb0ifbYobSUXlzdX4hRi5M"
