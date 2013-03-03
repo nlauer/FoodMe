@@ -57,11 +57,16 @@
                                 </ul>
                             </li>
                         </ul>
-                          <form id="signin_form" class="navbar-form pull-right">
-                            <input class="span2" id='signin_email' type="text" placeholder="Email">
-                            <input class="span2" id='signin_password' type="password" placeholder="Password">
-                            <button type="submit" class="btn" id="signin_button">Sign in</button>
-                        </form>
+                          <div id="login_div">
+                            <form id="signin_form" class="navbar-form pull-right">
+                              <input class="span2" id='signin_email' type="text" placeholder="Email">
+                              <input class="span2" id='signin_password' type="password" placeholder="Password">
+                              <button type="submit" class="btn" id="signin_button">Sign in</button>
+                            </form>
+                            <p id="user_logged_in" class="navbar-text pull-right" style="display: none;">
+                              Welcome, <span id='user_email'></span>!
+                            </p>
+                          </div>
                     </div><!--/.nav-collapse -->
                 </div>
             </div>
