@@ -4,6 +4,10 @@ FoodMe
 Launch Hackathon
 
 
+#### tools to use:
+- jquery.payment: https://stripe.com/blog/jquery-payment
+
+
 Things we need to know about the user to register
 -------------------------------------------------
 #### Combined List:
