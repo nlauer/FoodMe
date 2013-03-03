@@ -1,21 +1,24 @@
 require "sinatra"
 
-get'/Registration' do
-	"Hello World!"
+set :views, settings.root + '/../views'
+set :public_folder, File.dirname(__FILE__) + '/../static'
+
+get'/register' do
+	erb :register
 end
 
-get '/Login' do
-  "You're logging in #{params[:name]} and #{params[:something]} "
+get '/login' do
+  "Hello"
 end
 
-post '/Login/:name&password' do
-
-end
-
-post '/Registration' do
+post '/login/:name&password' do
 
 end
 
-post '/Order' do
+post '/register/complete/' do
+  "params #{params}"
+end
+
+post '/order' do
 
 end
