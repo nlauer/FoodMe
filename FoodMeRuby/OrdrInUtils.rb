@@ -11,8 +11,7 @@ class OrdrInUtils
 
     public
 
-    def randoOrder(price, address)
-        restaurant = randoRestau(address)
+    def randoOrder(price, restaurant)
         items ||= []
         counter = 0.0
         while counter < price do
