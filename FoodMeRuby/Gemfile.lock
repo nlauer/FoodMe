@@ -4,11 +4,14 @@ GEM
     diff-lcs (1.2.1)
     haml (4.0.0)
       tilt
+    listen (0.7.3)
     nokogiri (1.5.6)
     ordrin (0.1.4)
     rack (1.5.2)
     rack-protection (1.4.0)
       rack
+    rerun (0.8.0)
+      listen
     rspec (2.13.0)
       rspec-core (~> 2.13.0)
       rspec-expectations (~> 2.13.0)
@@ -31,5 +34,6 @@ DEPENDENCIES
   nokogiri
   ordrin
   rack (~> 1.1)
+  rerun
   rspec
   sinatra
