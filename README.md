@@ -67,8 +67,9 @@ add credit card (https://hackfood.ordr.in/explorer/user/addCreditCard)
 #### AMK front-end TODO:
 x login saves cookie
 x user knows whether he's logged in or not
-- show registration link depending on user status
+x show registration link depending on user status
 - registration also saves username/password to same cookie
+# TODO  next: register_complete should redirect back to home page
 - 'order' page/button
 - 'order page/button with location
 - 'order page/button with location guessing

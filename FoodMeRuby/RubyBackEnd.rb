@@ -1,7 +1,7 @@
 require "sinatra"
 require "ordrin"
-load "OrdrInUtils.rb"
-load "YelpUtils.rb"
+load "FoodMeRuby/OrdrInUtils.rb"
+load "FoodMeRuby/YelpUtils.rb"
 
 API_KEY = "U-o5Jb1VJ6Odx4Z8qEU3EGt3_xCrO7G2gfZBdsKysEA"
 SECRET_API_KEY = "b6MDqRkxBDZs6l9ArgOZEdb0ifbYobSUXlzdX4hRi5M"
@@ -76,6 +76,6 @@ post '/credit_card' do
   api.user.set_credit_card(login,params[:card_name],new_credit_card)
 end
 
-post '/order' do
+post '/order/?' do
   login = Ordrin::Data::UserLogin.new(params[:email],params[:password])
 end
