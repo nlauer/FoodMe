@@ -25,8 +25,8 @@ post '/register/complete/?' do
   api.user.create(login,params[:first_name],params[:last_name])
   api.user.set_address(login,"home",address)
   api.user.set_credit_card(login,"home",credit_card)
-  utils = OrdrInUtils.new(login, api)
-  puts utils.randoRestau()
+  # utils = OrdrInUtils.new(login, api)
+  # puts utils.randoOrder(20)
   "#{api.user.get(login)}"
 end
 

@@ -9,19 +9,47 @@ class OrdrInUtils
         @api = key
     end
 
-    def randoRestau()
-        restaurants = @api.restaurant.get_delivery_list('ASAP', @@address)
-        index = rand(restaurants.length)
-        restaurant = restaurants[index]
-        item = randoItem(restaurant["id"])
-        return restaurant
+    public
+
+    def randoOrder(price, address)
+        restaurant = randoRestau(address)
+        items ||= []
+        counter = 0.0
+        while counter < price do
+            item = randoItem(restaurant["id"], price - counter)
+            break if item.nil?
+            counter += Float(item["price"])
+            items << item
+        end
+        puts items
+        return "test"
     end
 
-    def randoItem(restaurantId)
+    private
+
+    def randoRestau(address)
+        restaurants = @api.restaurant.get_delivery_list('ASAP', address)
+        return restaurants[rand(restaurants.length)]
+    end
+
+    def randoItem(restaurantId, maxprice)
         base = @api.restaurant.get_details(restaurantId)
-        menu = base.select { |x| x["price"].nil? }
-        # puts menu
-        return menu
+        menu = getItemsWithMinimumPrice(base["menu"], 5.00, maxprice)
+        return menu[rand(menu.length)]
+    end
+
+    def getItemsWithMinimumPrice(array, price, maxprice)
+        items ||= []
+        items = array.select { |x| x.kind_of?(Hash) && !x["price"].nil? && Float(x["price"]) >= price && Float(x["price"]) <= maxprice}
+        array.each do |x|
+            next if !x.kind_of?(Hash) || x["children"].nil?
+            items += getItemsWithMinimumPrice(x["children"], price, maxprice)
+        end
+        array.each { |x|
+            next if !x.kind_of?(Array)
+            items += getItemsWithMinimumPrice(x, price, maxprice)
+        }
+        return items
     end
 
 end
