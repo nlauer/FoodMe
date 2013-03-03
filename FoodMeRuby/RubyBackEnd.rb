@@ -1,4 +1,5 @@
 require "sinatra"
+require "extensions/all"
 require "ordrin"
 
 API_KEY = "U-o5Jb1VJ6Odx4Z8qEU3EGt3_xCrO7G2gfZBdsKysEA"
