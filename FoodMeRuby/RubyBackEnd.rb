@@ -1,5 +1,6 @@
 require "sinatra"
 require "ordrin"
+load "OrdrInUtils.rb"
 
 API_KEY = "U-o5Jb1VJ6Odx4Z8qEU3EGt3_xCrO7G2gfZBdsKysEA"
 SECRET_API_KEY = "b6MDqRkxBDZs6l9ArgOZEdb0ifbYobSUXlzdX4hRi5M"
@@ -24,7 +25,9 @@ post '/register/complete/?' do
   api.user.create(login,params[:first_name],params[:last_name])
   api.user.set_address(login,"home",address)
   api.user.set_credit_card(login,"home",credit_card)
-  "Thank you for Registering"
+  utils = OrdrInUtils.new(login, api)
+  puts utils.randoRestau()
+  "#{api.user.get(login)}"
 end
 
 post '/order' do

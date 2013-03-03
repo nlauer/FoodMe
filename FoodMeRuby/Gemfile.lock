@@ -1,5 +1,5 @@
 GEM
-  remote: https://rubygems.org/
+  remote: http://rubygems.org/
   specs:
     diff-lcs (1.2.1)
     haml (4.0.0)
