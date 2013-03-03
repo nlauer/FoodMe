@@ -55,3 +55,12 @@ add credit card (https://hackfood.ordr.in/explorer/user/addCreditCard)
 - bill zip
 - bill phone # (probably use same)
 
+
+#### AMK front-end TODO:
+- login saves cookie
+- registration also saves username/password to same cookie
+- 'order' page/button
+- 'order page/button with location
+- 'order page/button with location guessing
+- CC validation on front-end
+- prettier bootstrap theme
