@@ -4,7 +4,7 @@ set :views, settings.root + '/../views'
 set :public_folder, File.dirname(__FILE__) + '/../static'
 
 get '/' do
-  "Welcome to FoodMe, you should <a href='/register'>register</a>"
+  erb :index
 end
 
 get'/register/?' do
