@@ -5,6 +5,7 @@ GEM
     haml (4.0.0)
       tilt
     nokogiri (1.5.6)
+    ordrin (0.1.4)
     rack (1.5.2)
     rack-protection (1.4.0)
       rack
@@ -28,6 +29,7 @@ PLATFORMS
 DEPENDENCIES
   haml
   nokogiri
+  ordrin
   rack (~> 1.1)
   rspec
   sinatra

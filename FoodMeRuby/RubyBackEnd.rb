@@ -1,4 +1,5 @@
 require "sinatra"
+require "ordrin"
 
 set :views, settings.root + '/../views'
 set :public_folder, File.dirname(__FILE__) + '/../static'
