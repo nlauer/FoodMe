@@ -11,7 +11,7 @@
 @interface ServerClient : NSObject
 
 + (ServerClient *)sharedInstance;
-- (void)signInWithEmail:(NSString *)email
-               password:(NSString *)password;
+- (void)signInWithEmail:(NSString *)email password:(NSString *)password;
+- (void)orderFoodToAddress:(NSDictionary *)addressComponents;
 
 @end

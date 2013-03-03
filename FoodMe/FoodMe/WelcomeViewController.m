@@ -10,7 +10,7 @@
 
 #import "ServerClient.h"
 
-@interface WelcomeViewController () <UITextFieldDelegate>
+@interface WelcomeViewController ()
 @property (strong) IBOutlet UITextField *emailTextField;
 @property (strong) IBOutlet UITextField *passwordTextField;
 @property (strong) IBOutlet UIButton *signInButton;
@@ -24,8 +24,13 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    self.title = @"Login";
+}
 
-    [_passwordTextField setSecureTextEntry:YES];
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+
+    [_emailTextField becomeFirstResponder];
 }
 
 - (void)didReceiveMemoryWarning
@@ -35,15 +40,12 @@
 }
 
 - (IBAction)signInPressed:(id)sender {
-    NSLog(@"Sign In Pressed");
     NSString *email = _emailTextField.text;
     NSString *password = _passwordTextField.text;
 
     [[ServerClient sharedInstance] signInWithEmail:email
                                           password:password];
 }
-
-#pragma mark - UITextFieldDelegate
 
 
 
