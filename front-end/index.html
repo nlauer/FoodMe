@@ -88,6 +88,18 @@
                 <input type="password" placeholder="sriracha" id="password" />
               </fieldset>
 
+              <fieldset>
+                <legend>Credit Card Info</legend>
+                  <label>Card Number</label>
+                  <input type="text" autocomplete="off" id="card-number" class="span4" />
+                  <label>CVC</label>
+                  <input type="text" autocomplete="off" id="cvc" class="span1"/>
+                  <label>Expiration (MM/YYYY)</label>
+                  <input type="text" class="span1" id="card-expiry-month"/>
+                  <span> / </span>
+                  <input type="text" class="span1" id="card-expiry-year"/>
+              </fieldset>
+
                 <div class="form-actions">
                   <button type="submit" class="btn btn-primary">Register me!</button>
                 </div>
