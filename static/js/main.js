@@ -3,6 +3,8 @@ $(document).on('ready', function() {
   if (user_info) {
     // user is logged in
     $('#user_email').html(user_info.email);
+    $('#order_email').val(user_info.email);
+    $('#order_password').val(user_info.password);
     $('.loggedin_only').show();
     $('.loggedout_only').hide();
   } else {

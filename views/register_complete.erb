@@ -1,1 +1,15 @@
-Thank you for registering for FoodMe.
+<div class="jumbotron">
+  <img src="/img/feed_me_button.png" class="img-circle landingpage-jumbotron-left">
+  <div class="landingpage-jumbotron-right">
+    <h1>Get food delivered to your doorstep in one click</h1>
+    <p class="lead">Yep. It's really that <del>simple</del> awesome.</p>
+    <form id="register_form" name="register" action="/order" method="POST">
+      <input type="hidden" name="email" id="order_email" />
+      <input type="hidden" name="password" id="order_password" />
+      <input type="hidden" name="addr_nick" value="home" />
+      <input type="hidden" name="price" value="20" />
+      <button class="btn btn-large btn-success landingpage-signupbutton" type="submit">Order Now!</button>
+    </form>
+    <p class="lead">Thank you for Registering. You're ready to use the app</p>
+  </div>
+</div>

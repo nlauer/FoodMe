@@ -32,7 +32,7 @@ post '/register/complete/?' do
     api.user.create(login,params[:first_name],params[:last_name])
     api.user.set_address(login,"home",home_address)
     api.user.set_credit_card(login,"home",credit_card)
-    "#{api.user.get(login)}"
+    erb :register_complete
   else 
     "Registration failed"
   end
@@ -120,7 +120,7 @@ post '/order' do
       retry
     end
   end
-  puts orderTray
+  erb :order_complete
 end
 
 def checkaddress(homeaddress)

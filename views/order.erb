@@ -3,24 +3,12 @@
   <div class="landingpage-jumbotron-right">
     <h1>Get food delivered to your doorstep in one click</h1>
     <p class="lead">Yep. It's really that <del>simple</del> awesome.</p>
-    <a class="btn btn-large btn-success landingpage-signupbutton" href="/register/">Sign me up!</a>
-  </div>
-</div>
-
-<div class="marketing landingpage-howitworks">
-  <h1>How it works</h1>
-  <div class="row-fluid">
-    <div class="span4">
-      <h4>1. Sign up</h4>
-      <p>Store your location and payment details securely to avoid dealing with them when ordering.</p>
-    </div>
-    <div class="span4">
-      <h4>2. Order</h4>
-      <p>It's as easy as clicking a button.  It <strong>is</strong> clicking a button.</p>
-    </div>
-    <div class="span4">
-      <h4>3. Enjoy!</h4>
-      <p>Your food is on the way!</p>
-    </div>
+    <form id="register_form" name="register" action="/order" method="POST">
+      <input type="hidden" name="email" id="order_email" />
+      <input type="hidden" name="password" id="order_password" />
+      <input type="hidden" name="addr_nick" value="home" />
+      <input type="hidden" name="price" value="20" />
+      <button class="btn btn-large btn-success landingpage-signupbutton" type="submit">Order Now!</button>
+    </form>
   </div>
 </div>
