@@ -6,55 +6,61 @@
 
 <!-- Example row of columns -->
 <form id="register_form" name="register" action="/register/complete/" method="POST">
-  <fieldset>
-    <legend>Basic Info</legend>
-    <label>First Name</label>
-    <input type="text" placeholder="Yagnik" name="first_name" />
-    <label>Last Name</label>
-    <input type="text" placeholder="Khanna" name="last_name" />
-    <label>Email</label>
-    <input type="text" placeholder="yagnik@isthebest.co" name="email" />
-    <label>Password</label>
-    <input type="password" placeholder="sriracha" name="password" />
-    <label>Cell</label>
-    <input type="text" placeholder="215-555-1029" name="phone_number" />
+  <div class="first_half_of_form">
+    <fieldset>
+      <legend>Basic Info</legend>
+      <label>First Name</label>
+      <input type="text" placeholder="Yagnik" name="first_name" class="span2"/>
+      <label>Last Name</label>
+      <input type="text" placeholder="Khanna" name="last_name" class="span2"/>
+      <label>Email</label>
+      <input type="text" placeholder="yagnik@isthebest.co" name="email" class="span2"/>
+      <label>Password</label>
+      <input type="password" placeholder="sriracha" name="password" class="span2"/>
+      <label>Cell</label>
+      <input type="text" placeholder="215-555-1029" name="phone_number" class="span2"/>
+    </fieldset>
 
-    <legend>Home Address</legend>
-    <label>Street Address</label>
-    <input type="text" name="home-address" placeholder="900 W. Smith Lane." />
-    <input type="text" name="home-address-2" placeholder="apt 23 (optional)" />
-    <label>City</label>
-    <input type="text" class="span3" name="home_city"/>
-    <label>State</label>
-    <input type="text" class="span1" name="home_state"/>
-    <label>Zip</label>
-    <input type="text" class="span1" name="home_zip"/>
-  </fieldset>
-
-  <fieldset>
-    <legend>Credit Card Info</legend>
-      <label>Card Number</label>
-      <input type="text" autocomplete="off" name="card-number" class="span4" />
-      <label>CVC</label>
-      <input type="text" autocomplete="off" name="cvc" class="span1"/>
-      <label>Expiration (MM/YYYY)</label>
-      <input type="text" class="span1" name="card-expiry-month"/>
-      <span> / </span>
-      <input type="text" class="span1" name="card-expiry-year"/>
-
-    <legend>Billing Address</legend>
+    <fieldset>
+      <legend>Home Address</legend>
       <label>Street Address</label>
-      <input type="text" name="street-address" placeholder="900 W. Smith Lane." />
-      <input type="text" name="street-address-2" placeholder="apt 23 (optional)" />
+      <input type="text" name="home-address" placeholder="900 W. Smith Lane." /> <br />
+      <input type="text" name="home-address-2" placeholder="apt 23 (optional)" class="span2" />
       <label>City</label>
-      <input type="text" class="span3" name="city"/>
+      <input type="text" class="span3" name="home_city"/>
       <label>State</label>
-      <input type="text" class="span1" name="state"/>
+      <input type="text" class="span1" name="home_state"/>
       <label>Zip</label>
-      <input type="text" class="span1" name="zip"/>
-  </fieldset>
+      <input type="text" class="span1" name="home_zip"/>
+    </fieldset>
+  </div>
 
-    <div class="form-actions">
-      <button type="submit" class="btn btn-primary">Register me!</button>
-    </div>
+  <div class="second_half_of_form">
+    <fieldset>
+      <legend>Credit Card Info</legend>
+        <label>Card Number</label>
+        <input type="text" autocomplete="off" name="card-number" class="span3" />
+        <label>CVC</label>
+        <input type="text" autocomplete="off" name="cvc" class="span1"/>
+        <label>Expiration (MM/YYYY)</label>
+        <input type="text" class="span1" name="card-expiry-month"/>
+        <span> / </span>
+        <input type="text" class="span1" name="card-expiry-year"/>
+    </fieldset>
+    <fieldset>
+      <legend>Billing Address</legend>
+        <label>Street Address</label>
+        <input type="text" name="street-address" placeholder="900 W. Smith Lane." />
+        <input type="text" name="street-address-2" placeholder="apt 23 (optional)" />
+        <label>City</label>
+        <input type="text" class="span3" name="city"/>
+        <label>State</label>
+        <input type="text" class="span1" name="state"/>
+        <label>Zip</label>
+        <input type="text" class="span1" name="zip"/>
+    </fieldset>
+  </div>
+  <div style="clear: both; margin-bottom: 200px;"></div>
+
+    <button type="submit" class="btn btn-primary btn-success btn-large">Register me!</button>
 </form>

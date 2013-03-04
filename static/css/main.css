@@ -95,3 +95,16 @@ footer {
   text-align: right;
   margin-top: 20px;
 }
+
+.first_half_of_form {
+  float: left;
+  min-width: 400px;
+}
+
+.hero-unit {
+  background-color: rgba(255, 255, 255, .5);
+}
+
+fieldset {
+  min-width: 200px;
+}
