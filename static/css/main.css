@@ -3,13 +3,49 @@
 /* ==========================================================================
    Author's custom styles
    ========================================================================== */
+.landingpage-jumbotron-left {
+  float: left;
+  padding-right: 40px;
+  padding-left: 40px;
+}
 
+.landingpage-jumbotron-right {
+  max-width: 1010px;
+  padding-top: 60px;
+}
 
+.landingpage-howitworks {
+  clear: both;
+}
 
+.landingpage-signupbutton {
+  font-size: 21px;
+  padding: 14px 24px;
+}
 
+.jumbotron {
+  margin-top: 20px;
+  margin-bottom: 40px;
+  padding: 20px 30px 130px 30px;
+  text-align: center;
+  background-image: none;
+  background-color: rgba(255,255,255,0.3);
+  border-radius: 50px;
+  border-right: 2px solid black;
+  border-bottom: 2px solid black;
+}
 
+body {
+  background-image:url("/img/retina_wood.png");
+  background-repeat:repeat;
+}
 
+.marketing p {
+  font-size: 22px;
+  line-height: 30px;
+}
 
-
-
-
+.marketing h4 {
+  font-size: 30px;
+  line-height: 30px;
+}
