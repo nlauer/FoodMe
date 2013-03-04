@@ -31,16 +31,7 @@ post '/register/complete/?' do
   api.user.create(login,params[:first_name],params[:last_name])
   api.user.set_address(login,"home",home_address)
   api.user.set_credit_card(login,"home",credit_card)
-  utils = OrdrInUtils.new(login, api)
-  yelprating = YelpUtils.new()
-  until (rating =="" || Float(rating) >= 3) && (!order.nil? && !order.empty?)    do
-    restaurant = utils.randoRestau(home_address)
-    rating = yelprating.GetYelpRating(restaurant)
-    order = utils.randoOrder(20.00, restaurant)
-  end
-  utils.assembleOrderId(order)
   "#{api.user.get(login)}"
-  #erb :register_complete
 end
 
 get '/shipping/?' do
@@ -92,4 +83,19 @@ end
 post '/order' do
   puts "#{params}"
   login = Ordrin::Data::UserLogin.new(params[:email],params[:password])
+  address = api.user.get_address(login, params[:addr_nick])
+  card = api.user.get_credit_card(login, params[:cc_nick])
+  utils = OrdrInUtils.new(login, api)
+  yelprating = YelpUtils.new()
+  until (rating =="" || Float(rating) >= 3) && (!order.nil? && !order.empty?)    do
+    restaurant = utils.randoRestau(address)
+    rating = yelprating.GetYelpRating(restaurant)
+    order = utils.randoOrder(Float(params[:price]), restaurant)
+  end
+  orderTray = utils.assembleOrderId(Float(params[:price]), order)
+  name = card.instance_variable_get(:@name)
+  names = name.split(" ")
+  tip = Float(params[:price])*0.15
+  api.order.order(restaurant[:id], orderTray, tip, 'ASAP', names[0], names[1], params[:addr_nick], "home", nil, login)
+  puts order
 end
