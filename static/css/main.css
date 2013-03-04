@@ -3,12 +3,36 @@
 /* ==========================================================================
    Author's custom styles
    ========================================================================== */
+.landingpage-jumbotron-left {
+  float: left;
+  padding-right: 40px;
+}
 
+.landingpage-jumbotron-right {
+  float: left;
+  max-width: 600px;
+  padding-top: 20px;
+}
 
+.landingpage-howitworks {
+  clear: both;
+}
 
+.landingpage-signupbutton {
+  font-size: 21px;
+  padding: 14px 24px;
+}
 
+.jumbotron {
+  margin-top: 50px;
+  margin-bottom: 50px;
+  text-align: center;
+}
 
-
+body {
+  background-image:url(img/retina-wood.png);
+  background-repeat:repeat;
+}
 
 
 
