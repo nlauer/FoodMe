@@ -40,6 +40,7 @@ maybe:
 Demo:
 - pick a domain
 - hook up domain to heroku
+- register on hackathon.io or whatever they want
 - buy 'easy' button
 - make sure all pages are polished and we have a script
 - order food to arrive
