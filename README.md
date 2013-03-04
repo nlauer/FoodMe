@@ -29,7 +29,10 @@ Back-end:
 
 Front-end:
 AMK prettier landing page (copy, css)
-AMK prettier bootstrap theme
+  - fix css border shadow
+  - include images at bottom
+  - include second call to action
+
 - pre-filled registration page
 - thank you for registering page
 maybe:
