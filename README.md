@@ -15,7 +15,36 @@ Token nrjOX80WLa5HLTC644UzJaSTiI3yT2LE
 Token Secret  OdwnM8F3JE0A11-VkKOMbx-Y67U
 
 
+#### Things to do before demo
+iOS app:
+- set up testflight
+- mechanism to 'here's how you get an invite'
+- finalize app name
+- screenshots or check how iOS demos are done at angelhack
 
+Back-end:
+- send email if registration in bad area or order in bad area or any sort of issue (not available yet in your area)
+- ordering actually works
+- buy domain
+
+Front-end:
+- prettier landing page (copy, css)
+- prettier bootstrap theme
+- pre-filled registration page
+- thank you for registering page
+maybe:
+- order page
+- validation at various stages
+- 'not yet in your area' message
+
+Demo:
+- pick a domain
+- hook up domain to heroku
+- register on hackathon.io or whatever they want
+- buy 'easy' button
+- make sure all pages are polished and we have a script
+- order food to arrive
+- get 'easy' button
 
 #### tools to use:
 - jquery.payment: https://stripe.com/blog/jquery-payment
@@ -64,14 +93,3 @@ add credit card (https://hackfood.ordr.in/explorer/user/addCreditCard)
 - bill phone # (probably use same)
 
 
-#### AMK front-end TODO:
-x login saves cookie
-x user knows whether he's logged in or not
-x show registration link depending on user status
-- registration also saves username/password to same cookie
-# TODO  next: register_complete should redirect back to home page
-- 'order' page/button
-- 'order page/button with location
-- 'order page/button with location guessing
-- CC validation on front-end
-- prettier bootstrap theme
