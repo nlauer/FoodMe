@@ -23,7 +23,7 @@ class EmailUtils
     "'Foodventurer' <#{email}>",
     "Order Failed",
     "Dear Foodventurer,
-    \nSorry we can not delivery food to your area at this moment.
+    \nSorry we can not deliver food to your area at this moment.
     \n -Jesse@JustFeedMe",
     "")
   end
