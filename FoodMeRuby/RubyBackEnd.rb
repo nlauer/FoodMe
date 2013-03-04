@@ -1,7 +1,7 @@
 require "sinatra"
 require "ordrin"
-load "OrdrInUtils.rb"
-load "YelpUtils.rb"
+load "FoodMeRuby/OrdrInUtils.rb"
+load "FoodMeRuby/YelpUtils.rb"
 require "json"
 
 
