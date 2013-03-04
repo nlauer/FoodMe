@@ -28,8 +28,8 @@ Back-end:
 - buy domain
 
 Front-end:
-- prettier landing page (copy, css)
-- prettier bootstrap theme
+AMK prettier landing page (copy, css)
+AMK prettier bootstrap theme
 - pre-filled registration page
 - thank you for registering page
 maybe:
@@ -38,10 +38,10 @@ maybe:
 - 'not yet in your area' message
 
 Demo:
-- pick a domain
+x pick a domain
 - hook up domain to heroku
 - register on hackathon.io or whatever they want
-- buy 'easy' button
+JESSE buy 'easy' button
 - make sure all pages are polished and we have a script
 - order food to arrive
 - get 'easy' button

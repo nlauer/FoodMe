@@ -17,11 +17,6 @@ class OrdrInUtils
         while counter < price do
             item = randoItem(restaurant["id"], price - counter)
             break if item.nil?
-            puts item
-            subitems = getSubItems(item)
-            if !subitems.nil?
-                puts subitems
-            end
             counter += Float(item["price"])
             items << item
         end
@@ -33,27 +28,43 @@ class OrdrInUtils
         return restaurants[rand(restaurants.length)]
     end
 
-    def assembleOrderId(order)
+    def assembleOrderId(price, order)
         result = ""
+        remaining = price;
+        order.each { |x| remaining -= Float(x["price"]) }
         order.each do |x|
             if result.length > 0
                 result += "+"
             end
-            result += x["id"]
+            result += (x["id"] + "/1")
+            subitems = getSubItems(x, remaining)
+            if(!subitems.nil? && !subitems.empty?)
+                #Add a subitem
+                subitem = subitems[rand(subitems.length)]
+                result += ("," + subitem["id"])
+                remaining -= Float(subitem["price"])
+            end
         end
-        puts result
         return result
     end
 
     private
 
-    def getSubItems(item)
+    def getSubItems(item, maxprice)
         item = item["children"]
-        return if item.nil?
+        if item.nil?
+            return nil
+        end
         subcategories ||= []
         item.each do |x| #explore sub categories
             subcategories << x
         end
+        subitems ||= []
+        subcategories.each do |x|
+            next if x["children"].nil?
+            subitems += x["children"]
+        end
+        subitems = subitems.select { |x| !x["price"].nil? && Float(x["price"]) <= maxprice }
         return subitems
     end
 
