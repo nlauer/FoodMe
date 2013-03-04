@@ -83,6 +83,10 @@ get '/get_account' do
   api.user.get(login).to_json
 end
 
+get '/order/?' do
+  erb :order
+end
+
 post '/order' do
   puts "#{params}"
   counter = 0
