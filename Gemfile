@@ -8,3 +8,6 @@ gem "ordrin"
 gem "rerun"
 gem "yelpster"
 gem "json"
+gem "rest-client"
+gem "mailgun"
+gem 'activeresource'

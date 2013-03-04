@@ -14,6 +14,9 @@ Consumer Secret giNKpzUwVQxI8ijEDjvq1N9IpDw
 Token nrjOX80WLa5HLTC644UzJaSTiI3yT2LE
 Token Secret  OdwnM8F3JE0A11-VkKOMbx-Y67U
 
+MailGun API Keys
+API URL : https://api.mailgun.net/v2
+API Key : key-7qu7x28lo9zcdun2gw51r2fq5qi37no7
 
 #### Things to do before demo
 iOS app:
@@ -25,7 +28,7 @@ iOS app:
 Back-end:
 - send email if registration in bad area or order in bad area or any sort of issue (not available yet in your area)
 - ordering actually works
-- buy domain
+- buy domain X
 
 Front-end:
 AMK prettier landing page (copy, css)

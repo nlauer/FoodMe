@@ -2,6 +2,7 @@ require "sinatra"
 require "ordrin"
 load "FoodMeRuby/OrdrInUtils.rb"
 load "FoodMeRuby/YelpUtils.rb"
+load "FoodMeRuby/EmailUtils.rb"
 require "json"
 
 
@@ -26,10 +27,14 @@ post '/register/complete/?' do
   home_address = Ordrin::Data::Address.new(params[:'home-address'],params[:home_city],params[:home_state],params[:home_zip],params[:phone_number],params[:'home-address-2'])
   bill_address = Ordrin::Data::Address.new(params[:'street-address'],params[:city],params[:state],params[:zip],params[:phone_number],params[:'home-address-2'])
   credit_card = Ordrin::Data::CreditCard.new( "#{params[:first_name]} #{params[:last_name]}", params[:'card-expiry-month'], params[:'card-expiry-year'], bill_address,params[:'card-number'],params[:cvc])
-  api.user.create(login,params[:first_name],params[:last_name])
-  api.user.set_address(login,"home",home_address)
-  api.user.set_credit_card(login,"home",credit_card)
-  "#{api.user.get(login)}"
+  if   checkaddress(home_address)
+    api.user.create(login,params[:first_name],params[:last_name])
+    api.user.set_address(login,"home",home_address)
+    api.user.set_credit_card(login,"home",credit_card)
+    "#{api.user.get(login)}"
+  else 
+    "Registration failed"
+  end
 end
 
 get '/shipping/?' do
@@ -103,10 +108,24 @@ post '/order' do
   rescue Ordrin::Errors::ApiError => e
     retry_count += 1
     if retry_count > 3
+      emailsender = EmailUtils.new()
+      emailsender.EmailOrderError(params[:email])
       raise
     else
       retry
     end
   end
   puts orderTray
+end
+
+def checkaddress(homeaddress)
+  api = Ordrin::APIs.new(SECRET_API_KEY, :test)
+  emailsender = EmailUtils.new()
+  restaurant = api.restaurant.get_delivery_list("ASAP", homeaddress)
+  if !restaurant.empty? 
+    return true
+  else 
+    emailsender.EmailRegistrationError("jessehysum@gmail.com")
+    return false
+  end
 end
