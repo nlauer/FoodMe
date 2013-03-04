@@ -39,3 +39,13 @@ body {
   background-image:url("/img/retina_wood.png");
   background-repeat:repeat;
 }
+
+.marketing p {
+  font-size: 22px;
+  line-height: 30px;
+}
+
+.marketing h4 {
+  font-size: 30px;
+  line-height: 30px;
+}
