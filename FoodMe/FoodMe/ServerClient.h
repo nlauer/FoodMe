@@ -16,7 +16,9 @@ typedef void (^ServerClientSuccessResponse)(AFHTTPRequestOperation *operation, i
 
 + (ServerClient *)sharedInstance;
 - (void)signInWithEmail:(NSString *)email password:(NSString *)password;
-- (void)orderFoodToAddress:(NSString *)address creditCard:(NSString *)card;
+- (void)orderFoodToAddress:(NSString *)address
+                creditCard:(NSString *)card
+                     price:(NSString *)price;
 
 - (void)saveShippingAddress:(NSDictionary *)addressComponents success:(ServerClientSuccessResponse)successHandler;
 - (void)getAllShippingAddresses:(ServerClientSuccessResponse)successHandler;

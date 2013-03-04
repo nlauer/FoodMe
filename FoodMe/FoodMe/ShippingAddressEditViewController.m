@@ -34,6 +34,10 @@
 {
     [super viewDidLoad];
 
+    UIImageView *tempImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"background"]];
+    [tempImageView setFrame:self.tableView.frame];
+    self.tableView.backgroundView = tempImageView;
+
     [[LocationManager sharedInstance] getStreetAddress:^(NSArray *placemark, NSError *error) {
         CLPlacemark *bestPlacemark = [placemark objectAtIndex:0];
         _addressComponents = [bestPlacemark addressDictionary];

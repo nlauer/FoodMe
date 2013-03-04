@@ -17,20 +17,22 @@
 
 #define kReuseIdentifier @"accountSettingCell"
 
-@interface OrderViewController () <UITextFieldDelegate, UITableViewDataSource, UITableViewDelegate, ShippingDelegate, CreditCardDelegate>
-@property (strong) IBOutlet UITextField *streetTextField;
-@property (strong) IBOutlet UITextField *cityTextField;
-@property (strong) IBOutlet UITextField *stateTextField;
-@property (strong) IBOutlet UITextField *postalCodeTextField;
+@interface OrderViewController () <UITextFieldDelegate, UITableViewDataSource, UITableViewDelegate, ShippingDelegate, CreditCardDelegate, UIPickerViewDataSource, UIPickerViewDelegate>
+@property (strong) IBOutlet UILabel *priceSliderLabel;
+@property (strong) IBOutlet UISlider *priceSlider;
 @property (strong) IBOutlet UITableView *tableView;
 @property (strong) IBOutlet UIButton *foodMeButton;
 
 - (IBAction)foodMePressed:(id)sender;
+- (IBAction)sliderValueChanged:(id)sender;
 @end
 
 @implementation OrderViewController {
     NSDictionary *selectedAddress;
     NSDictionary *selectedCreditCard;
+    NSString *price;
+    UIPickerView *picker;
+    UIActionSheet *sheet;
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -39,6 +41,7 @@
     if (self) {
         // Custom initialization
         self.title = @"FEEDME";
+        price = @"15.00";
     }
     return self;
 }
@@ -47,6 +50,10 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+
+    UIImageView *tempImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"background"]];
+    [tempImageView setFrame:self.tableView.frame];
+    self.tableView.backgroundView = tempImageView;
 }
 
 - (void)didReceiveMemoryWarning
@@ -56,9 +63,15 @@
 }
 
 - (IBAction)foodMePressed:(id)sender {
-    [[ServerClient sharedInstance] orderFoodToAddress:[selectedAddress objectForKey:@"nick"] creditCard:[selectedCreditCard objectForKey:@"nick"]];
+    [[ServerClient sharedInstance] orderFoodToAddress:[selectedAddress objectForKey:@"nick"]
+                                           creditCard:[selectedCreditCard objectForKey:@"nick"]
+                                                price:price];
     YouGotFoodViewController *youGotFoodViewController = [[YouGotFoodViewController alloc] initWithNibName:@"YouGotFoodViewController" bundle:nil];
     [self.navigationController presentViewController:youGotFoodViewController animated:YES completion:nil];
+}
+
+-(IBAction)sliderValueChanged:(id)sender {
+    [_priceSliderLabel setText:[NSString stringWithFormat:@"$%i", (int)round(_priceSlider.value)]];
 }
 
 #pragma mark - UITextFieldDelegate
@@ -86,16 +99,37 @@
     [_tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForRow:1 inSection:0]] withRowAnimation:UITableViewRowAnimationNone];
 }
 
+#pragma mark - Picker View Delegate
+
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {
+    return 1;
+}
+
+- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
+    return 86;
+}
+
+- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
+    return [NSString stringWithFormat:@"$%i.00", row + 15];
+}
+
+- (void)dismissActionSheet {
+    price = [NSString stringWithFormat:@"%i.00", [picker selectedRowInComponent:0] + 15];
+    [_tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForRow:3 inSection:0]] withRowAnimation:UITableViewRowAnimationNone];
+    [sheet dismissWithClickedButtonIndex:0 animated:YES];
+}
+
 #pragma mark - UITableView Methods
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 3;
+    return 4;
 }
 
 enum TableViewCellType : NSUInteger {
     TableViewCellShippingAddress = 0,
     TableViewCellCreditCard= 1,
     TableViewCellPreferences = 2,
+    TableViewCellPrice = 3
 };
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -112,7 +146,7 @@ enum TableViewCellType : NSUInteger {
             break;
         case TableViewCellPreferences:
             [cell setupAsPreferencesCell];
-            [cell.detailTextLabel setText:@"Vegetarian"];
+            [cell.detailTextLabel setText:@"Omnivore"];
             break;
         case TableViewCellCreditCard:
             [cell setupAsCreditCardCell];
@@ -120,6 +154,9 @@ enum TableViewCellType : NSUInteger {
                 [cell.detailTextLabel setText:[NSString stringWithFormat:@"***********%@", [selectedCreditCard objectForKey:@"cc_last5"]]];
             }
             break;
+        case TableViewCellPrice:
+            [cell.textLabel setText:@"Price:"];
+            [cell.detailTextLabel setText:[NSString stringWithFormat:@"$%@", price]];
     }
 
     return cell;
@@ -146,6 +183,36 @@ enum TableViewCellType : NSUInteger {
             [self.navigationController pushViewController:controller animated:YES];
         }
             break;
+        case TableViewCellPrice: {
+            sheet = [[UIActionSheet alloc] initWithTitle:nil
+                                                delegate:nil
+                                       cancelButtonTitle:nil
+                                  destructiveButtonTitle:nil
+                                       otherButtonTitles:nil];
+
+            [sheet setActionSheetStyle:UIActionSheetStyleBlackTranslucent];
+
+            CGRect pickerFrame = CGRectMake(0, 40, 0, 0);
+
+            picker = [[UIPickerView alloc] initWithFrame:pickerFrame];
+            picker.showsSelectionIndicator = YES;
+            picker.dataSource = self;
+            picker.delegate = self;
+
+            [sheet addSubview:picker];
+
+            UISegmentedControl *closeButton = [[UISegmentedControl alloc] initWithItems:[NSArray arrayWithObject:@"Done"]];
+            closeButton.momentary = YES;
+            closeButton.frame = CGRectMake(260, 7.0f, 50.0f, 30.0f);
+            closeButton.segmentedControlStyle = UISegmentedControlStyleBar;
+            closeButton.tintColor = [UIColor blackColor];
+            [closeButton addTarget:self action:@selector(dismissActionSheet) forControlEvents:UIControlEventValueChanged];
+            [sheet addSubview:closeButton];
+            
+            [sheet showInView:[[UIApplication sharedApplication] keyWindow]];
+            
+            [sheet setBounds:CGRectMake(0, 0, 320, 485)];
+        }
     }
 }
 

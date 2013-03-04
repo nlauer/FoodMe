@@ -31,13 +31,26 @@
   background-image: none;
   background-color: rgba(255,255,255,0.3);
   border-radius: 50px;
-  border-right: 2px solid black;
-  border-bottom: 2px solid black;
+  -moz-box-shadow:    5px 5px 20px 0px;
+  -webkit-box-shadow:    5px 5px 20px 0px;
+  box-shadow:    5px 5px 20px 0px;
 }
 
 body {
   background-image:url("/img/retina_wood.png");
   background-repeat:repeat;
+}
+
+.signup_howitworks {
+  margin-top: 60px;
+}
+
+.marketing {
+  text-align: center;
+}
+
+.marketing h1 {
+  text-align: left;
 }
 
 .marketing p {
@@ -48,4 +61,50 @@ body {
 .marketing h4 {
   font-size: 30px;
   line-height: 30px;
+}
+
+.marketing .span4 {
+  background-color: rgba(255,255,255,0.3);
+  border-bottom-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+  min-height: 300px;
+  margin-top: 20px;
+  padding-top: 10px;
+  position: relative;
+}
+
+.marketing .span4 img {
+  height: 100px;
+  width: 100px;
+  margin-top: 30px;
+}
+
+.marketing .span4 p {
+  position: absolute;
+  top: 220px;
+  padding: 10px;
+
+}
+
+.marketing h4 span {
+  font-size: 50px;
+
+}
+
+footer {
+  text-align: right;
+  margin-top: 20px;
+}
+
+.first_half_of_form {
+  float: left;
+  min-width: 400px;
+}
+
+.hero-unit {
+  background-color: rgba(255, 255, 255, .5);
+}
+
+fieldset {
+  min-width: 200px;
 }
