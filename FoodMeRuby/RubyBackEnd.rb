@@ -108,7 +108,7 @@ post '/order' do
       orderTray = utils.assembleOrderId(Float(params[:price]), order)
       puts orderTray
       tip = Float(params[:price])*0.15
-      api.order.order(restaurant["id"], orderTray, tip, 'ASAP', 'PLACE', 'HOLDER', params[:addr_nick], "home", nil, login)
+      api.order.order(restaurant["id"], orderTray, tip, '03-14+18:00', 'PLACE', 'HOLDER', params[:addr_nick], "home", nil, login)
   rescue Ordrin::Errors::ApiError => e
     retry_count += 1
     if retry_count > 3
