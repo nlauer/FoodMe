@@ -6,12 +6,12 @@
 .landingpage-jumbotron-left {
   float: left;
   padding-right: 40px;
+  padding-left: 40px;
 }
 
 .landingpage-jumbotron-right {
-  float: left;
-  max-width: 600px;
-  padding-top: 20px;
+  max-width: 1010px;
+  padding-top: 60px;
 }
 
 .landingpage-howitworks {
@@ -24,12 +24,18 @@
 }
 
 .jumbotron {
-  margin-top: 50px;
-  margin-bottom: 50px;
+  margin-top: 20px;
+  margin-bottom: 40px;
+  padding: 20px 30px 130px 30px;
   text-align: center;
+  background-image: none;
+  background-color: rgba(255,255,255,0.3);
+  border-radius: 50px;
+  border-right: 2px solid black;
+  border-bottom: 2px solid black;
 }
 
 body {
-  background-image:url(img/retina-wood.png);
+  background-image:url("/img/retina_wood.png");
   background-repeat:repeat;
 }
