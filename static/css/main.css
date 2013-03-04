@@ -5,32 +5,6 @@
    ========================================================================== */
 
 
-html, body {
-  width: 100%;
-  height: 50%;
-  margin: 0;
-  padding: 0;
-}
-#container {
-  width: inherit;
-  height: inherit;
-  margin: 0;
-  padding: 0;
-  background-color: pink;
-}
-
-.FoodBackGround{
-  display: inline-block;
-  width: 100%;
-  height: 50%;
-  background-image: url('../img/food48_belmont.jpg');
-}
-
-
-
-
-
-
 
 
 
