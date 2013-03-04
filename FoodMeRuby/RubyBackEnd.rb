@@ -80,21 +80,33 @@ end
 
 post '/order' do
   puts "#{params}"
-  rating = 0
-  order = nil
+  counter = 0
   login = Ordrin::Data::UserLogin.new(params[:email],params[:password])
   address = api.user.get_address(login, params[:addr_nick])
   newAddress = Ordrin::Data::Address.new(address["addr"],address["city"],address["state"],address["zip"],address["phone"])
   puts newAddress
   utils = OrdrInUtils.new(login, api)
   yelprating = YelpUtils.new()
-  until (rating =="" || Float(rating) >= 3) && (!order.nil? && !order.empty?)    do
-    restaurant = utils.randoRestau(newAddress)
-    rating = yelprating.GetYelpRating(restaurant)
-    order = utils.randoOrder(Float(params[:price]), restaurant)
+  retry_count = 0
+  begin
+      rating = 0
+      order = nil
+      until (rating =="" || Float(rating) >= 3) && (!order.nil? && !order.empty?)    do
+        restaurant = utils.randoRestau(newAddress)
+        rating = yelprating.GetYelpRating(restaurant)
+        order = utils.randoOrder(Float(params[:price]), restaurant)
+      end
+      orderTray = utils.assembleOrderId(Float(params[:price]), order)
+      puts orderTray
+      tip = Float(params[:price])*0.15
+      api.order.order(restaurant["id"], orderTray, tip, 'ASAP', 'PLACE', 'HOLDER', params[:addr_nick], "home", nil, login)
+  rescue Ordrin::Errors::ApiError => e
+    retry_count += 1
+    if retry_count > 3
+      raise
+    else
+      retry
+    end
   end
-  orderTray = utils.assembleOrderId(Float(params[:price]), order)
-  tip = Float(params[:price])*0.15
-  api.order.order(restaurant["id"], orderTray, tip, 'ASAP', 'PLACE', 'HOLDER', params[:addr_nick], "home", nil, login)
   puts orderTray
 end
