@@ -1,7 +1,9 @@
 require "sinatra"
 require "ordrin"
-load "FoodMeRuby/OrdrInUtils.rb"
-load "FoodMeRuby/YelpUtils.rb"
+load "OrdrInUtils.rb"
+load "YelpUtils.rb"
+require "json"
+
 
 API_KEY = "U-o5Jb1VJ6Odx4Z8qEU3EGt3_xCrO7G2gfZBdsKysEA"
 SECRET_API_KEY = "b6MDqRkxBDZs6l9ArgOZEdb0ifbYobSUXlzdX4hRi5M"
@@ -43,30 +45,34 @@ end
 
 get '/shipping/?' do
   login = Ordrin::Data::UserLogin.new(params[:email],params[:password])
-  api.user.get_address(login, params[:addr_name])
+  api.user.get_address(login, params[:addr_name]).to_json
 end
 
 get '/all_shipping' do
+  content_type :json
   login = Ordrin::Data::UserLogin.new(params[:email],params[:password])
-  api.user.addresses(login)
+  puts " all shipping #{params}"
+  api.user.get_all_addresses(login).to_json
 end
 
 post '/shipping' do
-  puts "#{params}"
+  puts " posting #{params}"
   login = Ordrin::Data::UserLogin.new(params[:email],params[:password])
   new_address = Ordrin::Data::Address.new(params[:address],params[:city],params[:state],params[:zip],params[:phone_number],params[:'address-2'])
   api.user.set_address(login,params[:address],new_address)
-  "You have added a new address"
+  puts "You have added a new address"
 end
 
 get '/credit_card/?' do
+  content_type :json
   login = Ordrin::Data::UserLogin.new(params[:email],params[:password])
-  api.user.get_credit_card(login,params[:card_name])
+  api.user.get_credit_card(login,params[:card_name]).to_json
 end
 
 get '/all_credit_card' do
+  content_type :json
   login = Ordrin::Data::UserLogin.new(params[:email],params[:password])
-  api.user.get_all_credit_cards(login)
+  api.user.get_all_credit_cards(login).to_json
 end
 
 post '/credit_card' do
@@ -76,6 +82,14 @@ post '/credit_card' do
   api.user.set_credit_card(login,params[:card_name],new_credit_card)
 end
 
-post '/order/?' do
+
+get '/get_account' do
+  content_type :json
+  login = Ordrin::Data::UserLogin.new(params[:email],params[:password])
+  api.user.get(login).to_json
+end
+
+post '/order' do
+  puts "#{params}"
   login = Ordrin::Data::UserLogin.new(params[:email],params[:password])
 end

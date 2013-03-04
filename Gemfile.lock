@@ -36,6 +36,7 @@ PLATFORMS
 
 DEPENDENCIES
   haml
+  json
   nokogiri
   ordrin
   rack (~> 1.1)
