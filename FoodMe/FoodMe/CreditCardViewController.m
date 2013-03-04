@@ -35,6 +35,9 @@
     [super viewDidLoad];
 
     self.title = @"CARDS";
+    UIImageView *tempImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"background"]];
+    [tempImageView setFrame:self.tableView.frame];
+    self.tableView.backgroundView = tempImageView;
 }
 
 - (void)viewWillAppear:(BOOL)animated {

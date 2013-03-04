@@ -14,8 +14,15 @@
 #import "KeychainAccessor.h"
 #import "AFJSONRequestOperation.h"
 
-#define kBaseUrl @"http://10.100.28.219:4567/"
-//#define kBaseUrl @"http://www.food.me"
+// Jesse's IP
+//#define kBaseUrl @"http://10.100.28.219:4567/"
+
+// Alec's IP
+//#define kBaseUrl @"http://10.100.17.236:4567/"
+
+//Production
+#define kBaseUrl @"http://arcane-fjord-3741.herokuapp.com/"
+
 #define kOrderFoodPath @"/order"
 
 #define kSaveShippingPath @"/shipping"
@@ -61,7 +68,7 @@
     [self showOrderViewController];
 }
 
-- (void)orderFoodToAddress:(NSString *)address creditCard:(NSString *)card {
+- (void)orderFoodToAddress:(NSString *)address creditCard:(NSString *)card price:(NSString *)price {
     _client = [AFHTTPClient clientWithBaseURL:[NSURL URLWithString:kBaseUrl]];
     
     NSString *email = [[KeychainAccessor sharedInstance] getEmail];
@@ -72,6 +79,7 @@
     [params setObject:password forKey:@"password"];
     [params setObject:card forKey:@"cc_nick"];
     [params setObject:address forKey:@"addr_nick"];
+    [params setObject:price forKey:@"price"];
 
     [_client postPath:kOrderFoodPath
            parameters:params
@@ -79,7 +87,7 @@
                   NSLog(@"Ordered thy food");
               }
               failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                  NSLog(@"Failed to sign in: %@", error);
+                  NSLog(@"Failed to order: %@", error);
               }];
 
 }
@@ -98,7 +106,7 @@
            parameters:params
               success:successHandler
               failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                  NSLog(@"Failed to sign in: %@", error);
+                  NSLog(@"Failed to save shipping: %@", error);
               }];
 }
 
