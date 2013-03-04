@@ -14,7 +14,7 @@ class EmailUtils
     \nThanks for your interest in JustFeedMe
     \nWe're currently not available in your area but we're expanding rapidly.
     \nJust stay tune.
-    \n -Jesse@JustFoodMe",
+    \n -Jesse@JustFeedMe",
     "")
   end
 
@@ -24,7 +24,7 @@ class EmailUtils
     "Order Failed",
     "Dear Foodventurer,
     \nSorry we can not delivery food to your area at this moment.
-    \n -Jesse@JustFoodMe",
+    \n -Jesse@JustFeedMe",
     "")
   end
 
