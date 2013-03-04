@@ -26,6 +26,8 @@
     } else {
         viewController = [[WelcomeViewController alloc] initWithNibName:@"WelcomeViewController" bundle:nil];
     }
+
+    [[UINavigationBar appearance] setTintColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"navigation_bar"]]];
     
     UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:viewController];
     self.navController = navController;

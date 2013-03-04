@@ -8,10 +8,19 @@
 
 #import <Foundation/Foundation.h>
 
+#import "AFHTTPClient.h"
+
 @interface ServerClient : NSObject
+
+typedef void (^ServerClientSuccessResponse)(AFHTTPRequestOperation *operation, id responseObject);
 
 + (ServerClient *)sharedInstance;
 - (void)signInWithEmail:(NSString *)email password:(NSString *)password;
-- (void)orderFoodToAddress:(NSDictionary *)addressComponents;
+- (void)orderFoodToAddress:(NSString *)address creditCard:(NSString *)card;
+
+- (void)saveShippingAddress:(NSDictionary *)addressComponents success:(ServerClientSuccessResponse)successHandler;
+- (void)getAllShippingAddresses:(ServerClientSuccessResponse)successHandler;
+
+- (void)getAllCreditCards:(ServerClientSuccessResponse)successHandler;
 
 @end
